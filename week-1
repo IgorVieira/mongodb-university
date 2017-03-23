@@ -1,0 +1,105 @@
+Introduction
+
+```
+use video
+db.movies.insertOne({ "title": "Jaws", "year": 1975, "imdb": "tt0073195" });
+db.movies.insertOne({ "title": "Mad Max 2: The Road Warrior", "year": 1981, "imdb": "tt0082694" })
+db.movies.insertOne({ "title": "Raiders of the Lost Ark", "year": 1981, "imdb": "tt0082971" })
+
+```
+
+Find
+
+
+```
+db.movies.find()
+
+/*
+{ "_id" : ObjectId("58d386eba8823613b10e9b67"), "title" : "Jaws", "year" : 1975, "imdb" : "tt0073195" }
+{ "_id" : ObjectId("58d386eca8823613b10e9b68"), "title" : "Mad Max 2: The Road Warrior", "year" : 1981, "imdb" : "tt0082694" }
+{ "_id" : ObjectId("58d386eca8823613b10e9b69"), "title" : "Raiders of the Lost Ark", "year" : 1981, "imdb" : "tt0082971" }
+*/
+
+
+db.movies.find().pretty()
+
+
+/*
+{
+        "_id" : ObjectId("58d386eba8823613b10e9b67"),
+        "title" : "Jaws",
+        "year" : 1975,
+        "imdb" : "tt0073195"
+}
+{
+        "_id" : ObjectId("58d386eca8823613b10e9b68"),
+        "title" : "Mad Max 2: The Road Warrior",
+        "year" : 1981,
+        "imdb" : "tt0082694"
+}
+{
+        "_id" : ObjectId("58d386eca8823613b10e9b69"),
+        "title" : "Raiders of the Lost Ark",
+        "year" : 1981,
+        "imdb" : "tt0082971"
+}
+*/
+ 
+
+```
+
+Find a commun variable
+
+
+```
+db.movies.find({"title":"Jaws"}).pretty()
+/*
+{
+        "_id" : ObjectId("58d386eba8823613b10e9b67"),
+        "title" : "Jaws",
+        "year" : 1975,
+        "imdb" : "tt0073195"
+}
+*/
+
+
+
+
+
+```
+Function next()
+db.movies.find().next()
+ got to for next object in document:
+```
+//db.movies.find()
+ var nextView = db.movies.find()
+ nextView.next()
+ 
+ 
+//nextView.next() 
+{
+        "_id" : ObjectId("58d386eca8823613b10e9b68"),
+        "title" : "Mad Max 2: The Road Warrior",
+        "year" : 1981,
+        "imdb" : "tt0082694"
+}
+
+
+//nextView.next()
+
+{
+        "_id" : ObjectId("58d386eca8823613b10e9b69"),
+        "title" : "Raiders of the Lost Ark",
+        "year" : 1981,
+        "imdb" : "tt0082971"
+}
+
+nextView.hasNext()
+//false
+because we have a three objects in document;
+```
+
+
+
+
+
